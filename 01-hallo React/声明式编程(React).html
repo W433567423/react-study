@@ -9,8 +9,30 @@
 </head>
 
 <body>
+  <div>header</div>
+  <div id="app">app</div>
+  <div>footer</div>
 
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
 
+  <script type="text/babel">
+    let message = 'hallo react'
+    const changeText = () => {
+      console.log('click');
+      message = message === 'hallo tutu' ? 'hallo react' : 'hallo tutu'
+      renderApp()
+    }
+    const renderApp = () => {
+      ReactDOM.render(
+        <div>
+          <h2>{message}</h2>
+          <button onClick={changeText}>改变文本</button>
+        </div>, document.querySelector('#app'))
+    }
+    renderApp()
+  </script>
 </body>
 
 </html>
