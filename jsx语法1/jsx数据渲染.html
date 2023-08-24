@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script crossorigin src="../resources/react.js"></script>
+  <script crossorigin src="../resources/react-dom.js"></script>
+  <script src="../resources/babel.js"></script>
+
+  <script type="text/babel">
+    class App extends React.Component {
+      constructor(props) {
+        super(props)
+        this.state = {
+          //正常显示
+          string: 'tutu',//string
+          number: 1,//number
+          arr: [1, 2, 3, 4],
+          arr: ['hallo', ' ', 'world'], //Array
+
+          //不显示
+          boolen: true,
+          null: null,
+          undefined: undefined,
+
+          //报错
+          info: {
+            name: 'tutu',
+            age: 18
+          }
+        }
+      }
+
+      render() {
+        return (
+          <div>
+            <h2>正常渲染</h2>
+            <p>{this.state.string}</p>
+            <p>{this.state.number}</p>
+            <p>{this.state.arr}</p>
+
+            <h2>不渲染</h2>
+            <p>{this.state.boolen}</p>
+            <p>{this.state.null}</p>
+            <p>{this.state.undefined}</p>
+
+            {/*<p>{this.state.info}</p>*/}
+          </div>
+        )
+      }
+    }
+
+    ReactDOM.createRoot(document.querySelector('#app')).render(<App />)
+  </script>
+</body>
+
+</html>
