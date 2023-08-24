@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script crossorigin src="../resources/react.js"></script>
+  <script crossorigin src="../resources/react-dom.js"></script>
+  <script src="../resources/babel.js"></script>
+
+  <script type="text/babel">
+    class App extends React.Component {
+      constructor() {
+        super()
+        this.state = {
+          message1: '电影列表(循环方法1)',
+          message2: '电影列表(循环方法2)',
+          movies: [
+            '大话西游',
+            '爱你一万年',
+            '孤注一掷',
+            '我是传奇'
+          ]
+        }
+      }
+
+      render() {
+        const liArr = []
+        for (let movie of this.state.movies)
+          liArr.push(<li>{movie}</li>)
+        return (
+          <div>
+            <h2>{this.state.message1}</h2>
+            <ul>
+              {liArr}
+            </ul>
+            <h2>{this.state.message1}</h2>
+            <ul>
+              {
+                this.state.movies.map(item => <li>{item}</li>)
+              }
+            </ul>
+          </div>
+        )
+      }
+    }
+
+    ReactDOM.createRoot(document.querySelector('#app')).render(<App />)
+
+  </script>
+</body>
+
+</html>
