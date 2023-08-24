@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script crossorigin src="../resources/react.js"></script>
+  <script crossorigin src="../resources/react-dom.js"></script>
+  <script src="../resources/babel.js"></script>
+
+  <script type="text/babel">
+    class App extends React.Component {
+      constructor(props) {
+        super(props)
+        this.state = {
+          firstName: 'u',
+          lastName: 'T'
+        }
+      }
+
+      render() {
+        const { firstName: fName, lastName: lName } = this.state
+        return (
+          <div>
+            {/*运算符*/}
+            <p>{lName + fName}</p>
+            {/*三元表达式*/}
+            <p>{lName ? lName : fName}</p>
+            {/*函数调用*/}
+            <p>{this.getFullName()}</p>
+            {/*逻辑表达式*/}
+            <p>{lName && fName}</p>
+          </div>
+        )
+      }
+
+      getFullName() {
+        return this.state.lastName + this.state.firstName
+      }
+    }
+
+    ReactDOM.createRoot(document.querySelector('#app')).render(<App />)
+  </script>
+</body>
+
+</html>
