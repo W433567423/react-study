@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .aaa {
+      width: 300px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script crossorigin src="../resources/react.js"></script>
+  <script crossorigin src="../resources/react-dom.js"></script>
+  <script src="../resources/babel.js"></script>
+
+  <script type="text/babel">
+    class App extends React.Component {
+      constructor(props) {
+        super(props)
+        this.state = {
+          title: '标题',
+          imgSrc: 'https://tutu-1313352375.cos.ap-nanjing.myqcloud.com/halo/photos/%E5%A3%81%E7%BA%B81.jpg'
+        }
+      }
+
+      render() {
+        const { title, imgSrc } = this.state
+        return (
+          <div>
+            <h2 title={title}>hallo react</h2>
+            <img src={imgSrc} alt="壁纸" className="aaa" />
+          </div>
+        )
+      }
+    }
+
+    ReactDOM.createRoot(document.querySelector('#app')).render(<App />)
+  </script>
+</body>
+
+</html>
