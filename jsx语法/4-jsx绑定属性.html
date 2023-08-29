@@ -9,6 +9,11 @@
   <style>
     .img {
       width: 300px;
+      transition: all .5s;
+    }
+
+    .rotate-45 {
+      transform: rotate(-45deg)
     }
 
     .active {
@@ -31,18 +36,26 @@
         this.state = {
           title: '标题',
           imgSrc: 'https://tutu-1313352375.cos.ap-nanjing.myqcloud.com/halo/photos/%E5%A3%81%E7%BA%B81.jpg',
-          active: true
+          active: false,
+          fontSize: '32px'
         }
       }
 
       render() {
-        const { title, imgSrc, active } = this.state
+        const { title, imgSrc, active, fontSize } = this.state
+        setInterval(() => this.setState({ active: !active }), 500)
         return (
           <div>
+            {/*绑定普通属性*/}
             <h2 title={title}>hallo react</h2>
-            <img src={imgSrc} alt="壁纸" className="img" />
-            {/* 动态类 */}
-            <img src={imgSrc} alt="壁纸" className={"img " + (active ? 'active' : '')} />
+
+            {/*绑定类*/}
+            <img src={imgSrc} alt="壁纸" className="img " />
+            {/* 动态绑定类 */}
+            <img src={imgSrc} alt="壁纸" className={"img rotate-45 " + (active ? 'active' : '')} />
+
+            {/* 绑定style */}
+            <div style={{ color: 'red', fontSize }}>绑定style</div>
           </div>
         )
       }
