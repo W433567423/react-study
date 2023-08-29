@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script crossorigin src="../resources/react.js"></script>
+  <script crossorigin src="../resources/react-dom.js"></script>
+  <script src="../resources/babel.js"></script>
+
+  <script type="text/babel">
+    class App extends React.Component {
+      constructor(props) {
+        super(props)
+        this.state = {
+          number1: 1,
+          number2: 'tutu',
+          number3: 'zhangsan'
+        }
+
+        // 2、构造时绑定this
+        this.clickButton2 = this.clickButton2.bind(this)
+      }
+
+      render() {
+        return (
+          <div>
+            {/*1显示绑定this*/}
+            <button onClick={this.clickButton1.bind(this)}>按钮1</button>
+
+            <button onClick={this.clickButton2}>按钮2</button>
+
+            <button onClick={this.clickButton3}>按钮3</button>
+          </div>
+        )
+      }
+
+      clickButton1() {
+        console.log('获取this正常', this.state.number1);
+      }
+
+      clickButton2() {
+        console.log('获取this正常', this.state.number2);
+      }
+
+      // 3、利用箭头函数不绑定this
+      clickButton3 = () => {
+        console.log('获取this正常', this.state.number3);
+      }
+    }
+
+    ReactDOM.createRoot(document.querySelector('#app')).render(<App />)
+  </script>
+</body>
+
+</html>
