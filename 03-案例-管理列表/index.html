@@ -123,7 +123,9 @@
                             <td>{e.date}</td>
                             <td>{formatPrice(e.price)}</td>
                             <td>
-                                <button onClick={() => this.changeCount(e.id, -1)}>-</button>
+                                <button onClick={() => this.changeCount(e.id, -1)}
+                                        disabled={e.count === 1}>-
+                                </button>
                                 <text className="count-number">{e.count}</text>
                                 <button onClick={() => this.changeCount(e.id, +1)}>+</button>
                             </td>
@@ -190,13 +192,8 @@
             this.setState({
                 bookList: this.state.bookList.map(item => {
                     if (item.id === id) {
-                        if (add === -1 && item.count === 1) {
-                            alert('购买数量不能少于一个')
-                            return item
-                        } else {
-                            item.count += add
-                            return item
-                        }
+                        item.count += add
+                        return item
                     } else return item
                 })
             })
