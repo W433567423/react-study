@@ -25,3 +25,11 @@
 ![img.png](resources/img.png)
 
 - PWA提供安装和离线等功能(Web APP)
+
+### 组件化开发
+
+- 函数式组件
+- 类组件
+    - 名称必须大写
+    - 继承自React.Component
+    - 实现render函数
