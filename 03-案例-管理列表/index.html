@@ -169,7 +169,7 @@
 
         // 获取总价
         getTotalPrice() {
-            return formatPrice(this.state.bookList.reduce((p, c) => p + c.price, 0))
+            return formatPrice(this.state.bookList.reduce((p, c) => p + c.price * c.count, 0))
         }
 
         // 获取总数量
@@ -190,7 +190,7 @@
             this.setState({
                 bookList: this.state.bookList.map(item => {
                     if (item.id === id) {
-                        if (add === -1 && item.count === 0) {
+                        if (add === -1 && item.count === 1) {
                             alert('购买数量不能少于一个')
                             return item
                         } else {
