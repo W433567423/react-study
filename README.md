@@ -10,7 +10,7 @@
 - React.createElement 最终创建出来一个 ReactElement 对象，利用 ReactElement 对象组成 JavaScript 的对象树（虚拟 DOM）
 - React.render 函数将虚拟 DOM 转换成真实 DOM
 
-### 前端工程化
+### 前端工程化->(脚手架)
 
 要考虑以下几个要素
 
@@ -19,3 +19,11 @@
 - 如何管理第三方模块的依赖
 - 项目发布前如何打包压缩
 - 等等...
+
+### yarn命令
+
+- yarn install(yarn)
+- yarn add [package] [--dev/-D]
+- yarn remove [package]
+- yarn cache clean
+- yarn upgrade
