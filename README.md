@@ -10,7 +10,7 @@
 - React.createElement 最终创建出来一个 ReactElement 对象，利用 ReactElement 对象组成 JavaScript 的对象树（虚拟 DOM）
 - React.render 函数将虚拟 DOM 转换成真实 DOM
 
-### 前端工程化->(脚手架)
+### 前端工程化>(脚手架)
 
 要考虑以下几个要素
 
@@ -20,10 +20,8 @@
 - 项目发布前如何打包压缩
 - 等等...
 
-### yarn命令
+### React目录结构
 
-- yarn install(yarn)
-- yarn add [package] [--dev/-D]
-- yarn remove [package]
-- yarn cache clean
-- yarn upgrade
+![img.png](resources/img.png)
+
+- PWA提供安装和离线等功能(Web APP)
