@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Document</title>
+    <style>
+        /*列表*/
+        h2 {
+            text-align: center;
+        }
+
+        table {
+            margin: 50px auto;
+            border-collapse: collapse;
+            box-sizing: border-box;
+            border: 1px solid #eee;
+        }
+
+        th, td {
+            border-collapse: collapse;
+            box-sizing: border-box;
+            border: 1px solid #eee;
+            padding: 10px 16px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #ccc;
+        }
+
+        .count-number {
+            margin: 0 8px;
+        }
+
+        /*结算*/
+        .deal-msg {
+            width: 200px;
+            margin: 100px auto;
+            text-align: center;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .deal-text {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /*空列表*/
+        .empty-body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .center-button {
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+<div id="app"></div>
+
+<script crossorigin src="../resources/react.js"></script>
+<script crossorigin src="../resources/react-dom.js"></script>
+<script src="../resources/babel.js"></script>
+
+
+<script src="./utils.js"></script>
+<script type="text/babel">
+    class App extends React.Component {
+        constructor(props) {
+            super(props)
+            this.state = {
+                showList: true,
+                bookList: [
+                    {id: 1, name: '算法导论', date: '2006-9', price: 85.00, count: 1},
+                    {id: 2, name: 'UNIX编程艺术', date: '2006-2', price: 59.00, count: 1},
+                    {id: 3, name: '编程珠玑', date: '2008-10', price: 39.00, count: 2},
+                    {id: 4, name: '代码大全', date: '2006-3', price: 128.00, count: 1}
+                ],
+                // bookList: []
+            }
+        }
+
+        render() {
+            return (
+                <div>
+                    {this.state.showList ?
+                        (this.state.bookList.length ? this.renderList() : this.renderEmpty()) :
+                        this.renderDeal()}
+                </div>
+            )
+        }
+
+        // render列表
+        renderList() {
+            return (
+                <div>
+                    <h2>图书列表</h2>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>书籍名称</th>
+                            <th>出版日期</th>
+
+                            <th>价格</th>
+                            <th>购买数量</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {this.state.bookList.map((e, i) => (<tr key={i}>
+                            <td>{e.id}</td>
+                            <td>{formatName(e.name)}</td>
+                            <td>{e.date}</td>
+                            <td>{formatPrice(e.price)}</td>
+                            <td>
+                                <button onClick={() => this.changeCount(e.id, -1)}>-</button>
+                                <text className="count-number">{e.count}</text>
+                                <button onClick={() => this.changeCount(e.id, +1)}>+</button>
+                            </td>
+                            <td>
+                                <button onClick={() => this.deleteItem(e.id)}>移除</button>
+                            </td>
+                        </tr>))}
+                        <tr>
+                            <td>合计</td>
+                            <td></td>
+                            <td></td>
+
+                            <td>{this.getTotalPrice()}</td>
+                            <td>{this.getTotalCount()}</td>
+                            <td>
+                                <button onClick={() => this.deal()}>结算</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>)
+        }
+
+        // render空状态
+        renderEmpty() {
+            return (
+                <div className="empty-body">
+                    <h2>列表为空</h2>
+                    <button className="center-button" onClick={() => this.addBook()}>去选择书籍</button>
+                </div>
+            )
+        }
+
+        // render结算
+        renderDeal() {
+            return (<div className="deal-msg">
+                <p className="deal-text red">结算成功</p>
+                <text>共计花费 <text className="red">{this.getTotalPrice()}</text> 元</text>
+                <p>欢迎下次光临</p>
+                <button onClick={() => this.deal()}>返回图书列表</button>
+            </div>)
+        }
+
+        // 获取总价
+        getTotalPrice() {
+            return formatPrice(this.state.bookList.reduce((p, c) => p + c.price, 0))
+        }
+
+        // 获取总数量
+        getTotalCount() {
+            return this.state.bookList.reduce((p, c) => p + c.count, 0)
+
+        }
+
+        // 获取删除某本书
+        deleteItem(id) {
+            this.setState({
+                bookList: this.state.bookList.filter(item => item.id !== id)
+            })
+        }
+
+        // 改变某本书数量
+        changeCount(id, add) {
+            this.setState({
+                bookList: this.state.bookList.map(item => {
+                    if (item.id === id) {
+                        if (add === -1 && item.count === 0) {
+                            alert('购买数量不能少于一个')
+                            return item
+                        } else {
+                            item.count += add
+                            return item
+                        }
+                    } else return item
+                })
+            })
+        }
+
+        // 结算/去列表
+        deal() {
+            this.setState({showList: !this.state.showList})
+            if (!this.state.showList)
+                this.setState({bookList: []})
+        }
+
+        // 新增书籍
+        addBook() {
+            alert('暂无书籍')
+        }
+    }
+
+    ReactDOM.createRoot(document.querySelector('#app')).render(<App/>)
+</script>
+</body>
+
+</html>
