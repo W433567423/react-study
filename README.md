@@ -47,12 +47,27 @@
 
 - mounting周期
     1. constructor函数
+        - 初始化state
+        - 为事件绑定实例
+
     2. render函数
     3. componentDidMount函数
+        - 进行依赖与DOM的操作
+        - 发送网络请求
+        - 添加订阅
 
 - updating周期
     1. render函数
     2. componentDidUpdate函数
+        - 对DOM进行操作
+        - 比较props，进行操作(eg:网络请求)
 
 - Unmounting周期
     1. componentWillUnmount函数
+        - 取消订阅
+        - 取消网络请求
+        - 清楚timer
+
+- 不常用的生命周期
+  ![img.png](https://tutu-1313352375.cos.ap-nanjing.myqcloud.com/my/life-cycle-all.png)
+    - shouldComponentUpdate  

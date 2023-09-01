@@ -36,8 +36,7 @@ export default class App extends Component <IPropType, IStateType> {
     }
 
     componentDidUpdate(prevProps: Readonly<IPropType>, prevState: Readonly<IStateType>, snapshot?: any) {
-        console.log(prevProps, prevState, '4-componentDidUpdate周期')
-
+        console.log(prevProps, prevState, snapshot, '4-componentDidUpdate周期')
     }
 
     componentWillUnmount() {
