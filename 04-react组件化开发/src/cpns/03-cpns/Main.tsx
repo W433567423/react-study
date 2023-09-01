@@ -12,9 +12,13 @@ export default class Main extends Component {
         return (
             <div>
                 <h2>this is Main</h2>
-                <ChildClass name='tutu'/>
+                <ChildClass f={this.f} name='tutu'/>
                 <ChildFunction name='tutu'/>
             </div>
         )
+    }
+
+    f() {
+        console.log(1)
     }
 }
