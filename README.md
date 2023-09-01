@@ -70,4 +70,10 @@
 
 - 不常用的生命周期
   ![img.png](https://tutu-1313352375.cos.ap-nanjing.myqcloud.com/my/life-cycle-all.png)
-    - shouldComponentUpdate  
+    - shouldComponentUpdate
+
+## 组件之间的通信
+
+#### 子->父
+
+#### 父->子
