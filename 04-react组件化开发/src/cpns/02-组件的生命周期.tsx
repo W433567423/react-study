@@ -5,16 +5,16 @@ interface IPropType {
 }
 
 interface IStateType {
-    text: any
+    text: any,
 }
 
 export default class App extends Component <IPropType, IStateType> {
     constructor(props: any) {
-        console.log('1-constructor周期')
         super(props)
         this.state = {
             text: 'react'
         }
+        console.log('1-constructor周期')
     }
 
     render() {
@@ -37,6 +37,7 @@ export default class App extends Component <IPropType, IStateType> {
 
     componentDidUpdate(prevProps: Readonly<IPropType>, prevState: Readonly<IStateType>, snapshot?: any) {
         console.log(prevProps, prevState, '4-componentDidUpdate周期')
+
     }
 
     componentWillUnmount() {
