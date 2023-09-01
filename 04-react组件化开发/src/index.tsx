@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './cpns/02-组件的生命周期';
+import App from './cpns/03-组件嵌套';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
