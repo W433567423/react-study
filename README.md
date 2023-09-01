@@ -44,3 +44,15 @@
 ## 生命周期
 
 ![img.png](https://tutu-1313352375.cos.ap-nanjing.myqcloud.com/my/life-cycle.png)
+
+- mounting周期
+    1. constructor函数
+    2. render函数
+    3. componentDidMount函数
+
+- updating周期
+    1. render函数
+    2. componentDidUpdate函数
+
+- Unmounting周期
+    1. componentWillUnmount函数
