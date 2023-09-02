@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './cpns/04-跨组件通信';
+import App from './cpns/05-setState';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(

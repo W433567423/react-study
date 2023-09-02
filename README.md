@@ -170,5 +170,19 @@ GetClassComponent.contextType = MyContext
 
 - PropTypes
 
-## SetState
+## setState
 
+- [在生命周期里]this.setState()是异步的
+
+  - 显著提升性能
+  - 让state和props保持一致
+
+  > 在setTimeout、原生DOM事件等情况下是同步的
+
+## React更新机制
+
+![img.png](https://tutu-1313352375.cos.ap-nanjing.myqcloud.com/my/render-pipeline.png)
+
+![img.png](https://tutu-1313352375.cos.ap-nanjing.myqcloud.com/my/update-pipeline.png)
+
+- 
