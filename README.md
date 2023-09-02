@@ -41,7 +41,7 @@
 - 没有生命周期
 - 返回的类型为 React 元素/数组或 fragments/Portals/字符串或数字/布尔值或null
 
-## 生命周期
+### 生命周期
 
 ![img.png](https://tutu-1313352375.cos.ap-nanjing.myqcloud.com/my/life-cycle.png)
 
@@ -72,23 +72,23 @@
   ![img.png](https://tutu-1313352375.cos.ap-nanjing.myqcloud.com/my/life-cycle-all.png)
     - shouldComponentUpdate
 
-## 通信
+### 通信
 
-### 组件之间的
+#### 组件之间的
 
-#### 父->子
+##### 父->子
 
 - 通过自定义属性
   > 1. 可以定义属性left-slot、right-slot传递React元素以实现vue插槽
   > 2. 通过{...props}进行子孙节点通信
 
-#### 子->父
+##### 子->父
 
 - 通过自定义属性(传递一个函数)
 
-### 跨组件通信
+#### 跨组件通信
 
-#### React.Context(淘汰)
+##### React.Context(淘汰)
 
 ```react
 import {Component, createContext} from "react";
@@ -162,15 +162,15 @@ function GetFunctionComponent() {
 GetClassComponent.contextType = MyContext
 ```
 
-#### Redux[未完成]
+##### Redux[未完成]
 
-#### Hooks[未完成]
+##### Hooks[未完成]
 
-## 类型校验
+#### 类型校验
 
 - PropTypes
 
-## setState
+#### setState
 
 - [在生命周期里]this.setState()是异步的
 
@@ -179,10 +179,10 @@ GetClassComponent.contextType = MyContext
 
   > 在setTimeout、原生DOM事件等情况下是同步的
 
-## React更新机制
+#### React更新机制
 
 ![img.png](https://tutu-1313352375.cos.ap-nanjing.myqcloud.com/my/render-pipeline.png)
 
 ![img.png](https://tutu-1313352375.cos.ap-nanjing.myqcloud.com/my/update-pipeline.png)
 
-- 
+## 全局事件event
