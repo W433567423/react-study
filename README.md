@@ -190,3 +190,80 @@ GetClassComponent.contextType = MyContext
 ![img.png](https://tutu-1313352375.cos.ap-nanjing.myqcloud.com/my/update-pipeline.png)
 
 ## 事件总线event
+
+```react
+import {PureComponent} from 'react';
+import {EventEmitter} from "events";
+
+
+const eventBus = new EventEmitter()
+
+class App extends PureComponent {
+    render() {
+        return (
+            <div>
+                App
+                <Child1/>
+            </div>
+        );
+    }
+
+    componentDidMount() {
+        eventBus.on('clickButton', this.log)
+    }
+
+    componentWillUnmount() {
+        eventBus.off('clickButton', this.log)
+        // eventBus.off('clickButton') 
+    }
+
+    log(e) {
+        console.log('破案',e)
+    }
+}
+
+
+class Child1 extends PureComponent {
+    render() {
+        return (
+            <div>
+                Child1
+                <Child2/>
+            </div>
+        );
+    }
+}
+
+class Child2 extends PureComponent {
+    render() {
+        return (
+            <div>
+                Child2
+                <Child3/>
+            </div>
+        );
+    }
+}
+
+class Child3 extends PureComponent {
+    render() {
+        return (
+            <div>
+                Child3
+                <button onClick={() => this.sendMsg()}>点击</button>
+            </div>
+        );
+    }
+
+
+    sendMsg() {
+        console.log('发送事件')
+        eventBus.emit('clickButton', 'hallo world')
+    }
+
+}
+
+export default App;
+```
+
+> eventEmitter().on('enventName',()=>{})必须搭配eventEmitter().off('enventName',()=>{})使用，不然会触发两次,可能与react机制有所关联

@@ -15,15 +15,19 @@ class App extends PureComponent {
     }
 
     componentDidMount() {
-        eventBus.on('clickButton', (args) => {
-            console.log('监听到了事件', args)
-        })
+        // eventBus.on('clickButton', (args) => {
+        //     console.log('监听到了事件', args)
+        // })
+        eventBus.on('clickButton', this.log)
     }
 
     componentWillUnmount() {
-        eventBus.off('clickButton', (args) => {
-            console.log('移除监听事件', args)
-        })
+        eventBus.off('clickButton', this.log)
+        // eventBus.off('clickButton')
+    }
+
+    log(e: any) {
+        console.log('破案', e)
     }
 }
 
@@ -59,6 +63,7 @@ class Child3 extends PureComponent {
             </div>
         );
     }
+
 
     sendMsg() {
         console.log('发送事件')
