@@ -179,6 +179,10 @@ GetClassComponent.contextType = MyContext
 
   > 在setTimeout、原生DOM事件等情况下是同步的
 
+- 使用this.setState()时需要不可变
+
+  > 对对象类型进行深拷贝
+
 #### React更新机制
 
 ![img.png](https://tutu-1313352375.cos.ap-nanjing.myqcloud.com/my/render-pipeline.png)
