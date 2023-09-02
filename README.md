@@ -189,4 +189,4 @@ GetClassComponent.contextType = MyContext
 
 ![img.png](https://tutu-1313352375.cos.ap-nanjing.myqcloud.com/my/update-pipeline.png)
 
-## 全局事件event
+## 事件总线event
