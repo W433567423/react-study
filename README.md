@@ -267,3 +267,42 @@ export default App;
 ```
 
 > eventEmitter().on('enventName',()=>{})必须搭配eventEmitter().off('enventName',()=>{})使用，不然会触发两次,可能与react机制有所关联
+
+## Ref
+
+react一般不需要、也不建议直接操作DOM,特殊情况下可以使用ref,如
+
+- 管理焦点、文本选择、媒体播放
+- 触发强制动画
+- 集成第三方DOM库
+
+创建refs的三种方法
+
+- 字符串ref(不推荐)
+
+  ```react
+  render(){return<p ref='pRef'></p>}
+  // 通过this.refs.pRef拿到该DOM元素
+  ```
+
+- 对象ref(推荐)
+
+  ```react
+  constructor(){
+      this.pRef=creatRef()
+  }
+  render(){return<p ref={this.pRef}></p>}
+  
+  // 通过this.pRef拿到该DOM元素
+  ```
+
+- 回调函数ref
+
+  ```react
+  constructor(){
+      this.pRef=null
+  }
+  render(){return<p ref={(args)=>this.pRef=args}></p>}
+  ```
+
+  
