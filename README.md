@@ -189,6 +189,20 @@ GetClassComponent.contextType = MyContext
 
 ![img.png](https://tutu-1313352375.cos.ap-nanjing.myqcloud.com/my/update-pipeline.png)
 
+### 受控组件
+
+1. 受控组件通过`props`获取其当前值，并通过回调函数(比如`onChange`)通知变化
+2. 表单状态发生变化时，都会通知`React`，将状态交给`React`进行处理，比如可以使用`useState`存储
+3. 受控组件中，组件渲染出的状态与它的`value`或`checked`属性相对应
+4. 受控组件会更新`state`的流程
+
+### 高阶组件
+
+react高阶组件并不是react API的一部分，它是基于React的组合特性而形成的设计模式
+
+- comPonent.display='定义组件名'
+- 可以通过`<cpn {...this.props} />`或`<cpn {props} />`传递给内部组件
+
 ## 事件总线event
 
 ```react
@@ -305,10 +319,4 @@ react一般不需要、也不建议直接操作DOM,特殊情况下可以使用re
   render(){return<p ref={(args)=>this.pRef=args}></p>}
   ```
 
-
-## 受控组件
-
-1. 受控组件通过`props`获取其当前值，并通过回调函数(比如`onChange`)通知变化
-2. 表单状态发生变化时，都会通知`React`，将状态交给`React`进行处理，比如可以使用`useState`存储
-3. 受控组件中，组件渲染出的状态与它的`value`或`checked`属性相对应
-4. 受控组件会更新`state`的流程
+- 
