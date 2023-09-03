@@ -9,6 +9,12 @@ set ESC_CHAR=
 set gitPath="C:\Program Files\Git\bin\git.exe"
 set branchName=powo
 
+:: 客制化commit名称
+@echo %commit% 请输入commit时的名称(默认为"提交缓冲区文件")
+set /p commit=""
+if  "%commit%" == "" (set "commit=提交缓冲区文件")
+
+pause
 
 @echo %ESC_CHAR%[38;5;2m开始执行脚本%ESC_CHAR%[m
 @echo %ESC_CHAR%[38;5;226m将文件添加到缓冲区...%ESC_CHAR%[m
@@ -16,7 +22,7 @@ set branchName=powo
 
 @echo.
 @echo %ESC_CHAR%[38;5;226m将文件提交到远程仓库...%ESC_CHAR%[m
-%gitPath% commit -m "commit to powo branch"
+%gitPath% commit -m "%commit%"
 
 @echo.
 @echo %ESC_CHAR%[38;5;226m推送到%branchName%分支...%ESC_CHAR%[m
@@ -40,5 +46,5 @@ set branchName=powo
 
 @echo.
 @echo %ESC_CHAR%[38;5;160m执行脚本成功%ESC_CHAR%[m
-  
+
 pause
