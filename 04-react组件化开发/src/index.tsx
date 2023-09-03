@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './cpns/06-全局event';
+import App from './cpns/07-受控组件';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(

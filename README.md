@@ -270,7 +270,7 @@ export default App;
 
 ## Ref
 
-react一般不需要、也不建议直接操作DOM,特殊情况下可以使用ref,如
+react一般不需要、也不建议直接操作DOM元素,特殊情况下可以使用ref,如
 
 - 管理焦点、文本选择、媒体播放
 - 触发强制动画
@@ -293,7 +293,7 @@ react一般不需要、也不建议直接操作DOM,特殊情况下可以使用re
   }
   render(){return<p ref={this.pRef}></p>}
   
-  // 通过this.pRef拿到该DOM元素
+  // 通过this.pRef拿到该DOM元素(可获取到子组件对象)
   ```
 
 - 回调函数ref
@@ -305,4 +305,5 @@ react一般不需要、也不建议直接操作DOM,特殊情况下可以使用re
   render(){return<p ref={(args)=>this.pRef=args}></p>}
   ```
 
-  
+
+## 受控组件
