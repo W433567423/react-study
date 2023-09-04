@@ -201,7 +201,12 @@ GetClassComponent.contextType = MyContext
 react高阶组件并不是react API的一部分，它是基于React的组合特性而形成的设计模式
 
 - comPonent.display='定义组件名'
+
 - 可以通过`<cpn {...this.props} />`或`<cpn {props} />`传递给内部组件
+
+- 高阶组件可以用来增强props、渲染判断鉴权、生命周期劫持
+
+  
 
 ## 事件总线event
 
@@ -318,5 +323,3 @@ react一般不需要、也不建议直接操作DOM,特殊情况下可以使用re
   }
   render(){return<p ref={(args)=>this.pRef=args}></p>}
   ```
-
-- 
