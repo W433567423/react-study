@@ -1,0 +1,9 @@
+#modal {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    background-color: lightgoldenrodyellow;
+    width: 100px;
+    height: 100px;
+    transform: translate(-50%, -50%);
+}

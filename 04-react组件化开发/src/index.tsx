@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './cpns/07-受控组件';
+import App from './cpns/08-portals的使用';
 import reportWebVitals from './reportWebVitals';
+
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement

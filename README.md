@@ -204,9 +204,13 @@ react高阶组件并不是react API的一部分，它是基于React的组合特�
 
 - 可以通过`<cpn {...this.props} />`或`<cpn {props} />`传递给内部组件
 
-- 高阶组件可以用来增强props、渲染判断鉴权、生命周期劫持
+- 高阶组件可以用来增强props、渲染判断鉴权、生命周期劫持、反向继承(不推荐)、ref转发(forwardRef())等
 
-  
+  > react推荐进行组合，而不是继承
+
+### portals
+
+- 将一些东西渲染到指定元素(eg:modal组件)
 
 ## 事件总线event
 
