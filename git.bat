@@ -23,7 +23,7 @@ if  "%commit%" == "" (set "commit=提交缓冲区文件")
 @echo.
 @echo %ESC_CHAR%[38;5;226m将文件提交到远程仓库...%ESC_CHAR%[m
 @echo %ESC_CHAR%[38;5;3m^>git commit -m "%commit%" ing...%ESC_CHAR%[m
-%gitPath% commit -m "%commit%"
+%gitPath% commit -m "feat: %commit%"
 
 @echo.
 @echo %ESC_CHAR%[38;5;226m推送到%branchName%分支...%ESC_CHAR%[m
