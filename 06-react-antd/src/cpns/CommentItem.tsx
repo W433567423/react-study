@@ -1,7 +1,8 @@
 import {PureComponent} from 'react';
-import {ICommentInfo} from "../type.ts";
+import {ICommentInfo} from "../type";
 import {Avatar, Button} from "antd";
 import {DeleteOutlined} from "@ant-design/icons";
+// @ts-ignore
 import style from './style.module.css'
 
 interface IPropsType {
@@ -29,8 +30,8 @@ class CommentItem extends PureComponent<IPropsType, IStateType> {
 
                             <div className={style.commentInner}>
                                 <div>
-                                    <text className={style.commentNick}>{e.nickName}</text>
-                                    <text className={style.commentTime}>{e.time?.format('YYYY-MM-DD')}</text>
+                                    <span className={style.commentNick}>{e.nickName}</span>
+                                    <span className={style.commentTime}>{e.time?.format('YYYY-MM-DD')}</span>
                                 </div>
                                 <p className={style.commentText}>{e.comment}</p>
                                 <Button className={style.commentButton} type="text" icon={<DeleteOutlined/>}

@@ -1,7 +1,7 @@
-import CommentItem from "./cpns/CommentItem.tsx";
-import CommentInput from "./cpns/CommentInput.tsx";
+import CommentItem from "./cpns/CommentItem";
+import CommentInput from "./cpns/CommentInput";
 import {PureComponent} from "react";
-import {ICommentInfo} from "./type.ts";
+import {ICommentInfo} from "./type";
 import * as dayjs from "dayjs";
 
 interface IPropsType {
