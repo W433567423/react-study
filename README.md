@@ -212,6 +212,13 @@ react高阶组件并不是react API的一部分，它是基于React的组合特�
 
 - 将一些东西渲染到指定元素(eg:modal组件)
 
+### fragments
+
+- 和template(vue),block(小程序)类似，不渲染的节点
+- 短语法：`<Fragment></Fragment>`有时可以简写为`<></>`
+
+> 使用短语法时不能添加任何属性
+
 ## 事件总线event
 
 ```react
@@ -327,3 +334,11 @@ react一般不需要、也不建议直接操作DOM,特殊情况下可以使用re
   }
   render(){return<p ref={(args)=>this.pRef=args}></p>}
   ```
+
+## StrictMode
+
+- 不安全的生命周期
+- 过时的ref API
+- 检查意外的副作用
+- 使用废弃的findDOMNode方法
+- 检查过期的context API

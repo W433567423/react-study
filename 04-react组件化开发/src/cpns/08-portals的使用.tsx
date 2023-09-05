@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react';
+import React, {Fragment, PureComponent} from 'react';
 import {createPortal} from "react-dom";
 
 class Modal extends PureComponent<any, any> {
@@ -10,12 +10,12 @@ class Modal extends PureComponent<any, any> {
 class Home extends PureComponent {
     render() {
         return (
-            <div>
+            <Fragment>
                 <h2>Home</h2>
                 <Modal>
                     <h2>Title</h2>
                 </Modal>
-            </div>
+            </Fragment>
         )
     }
 }
