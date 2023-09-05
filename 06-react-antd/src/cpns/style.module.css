@@ -1,0 +1,27 @@
+.commentBody {
+    display: flex;
+
+
+}
+
+.commentInner {
+    display: flex;
+    flex-direction: column;
+    margin-left: 12px;
+}
+
+.commentNick, .commentTime {
+    font-size: 20px;
+    line-height: 20px;
+}
+
+.commentTime {
+    font-size: 12px;
+    margin-left: 12px;
+    color: #a9a9a9;
+}
+
+.commentButton {
+    width: 60px;
+    padding: 0;
+}
