@@ -350,3 +350,15 @@ react一般不需要、也不建议直接操作DOM,特殊情况下可以使用re
 - css module
 - styled-components库(All in js)
 - classnames库
+
+## Redux
+
+- 三大原则
+
+  - 单一数据源
+  - state只读(通过action进行修改)
+  - 编写纯函数
+
+- 流程图
+
+  ![redux.gif](https://cn.redux.js.org/assets/images/ReduxDataFlowDiagram-49fa8c3968371d9ef6f2a1486bd40a26.gif)
