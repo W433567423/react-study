@@ -1,5 +1,5 @@
 {
-  "name": "06-react-antd",
+  "name": "07-react_hooks",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,10 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@ant-design/icons": "^5.2.6",
-    "antd": "^5.8.6",
-    "axios": "^1.5.0",
-    "dayjs": "^1.11.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

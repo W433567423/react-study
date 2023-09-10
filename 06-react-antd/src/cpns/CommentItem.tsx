@@ -4,6 +4,7 @@ import {Avatar, Button} from "antd";
 import {DeleteOutlined} from "@ant-design/icons";
 // @ts-ignore
 import style from './style.module.css'
+import axios from "axios";
 
 interface IPropsType {
     list: ICommentInfo[]
@@ -17,6 +18,15 @@ class CommentItem extends PureComponent<IPropsType, IStateType> {
     constructor(props: IPropsType) {
         super(props);
         this.state = {}
+    }
+
+    componentDidMount() {
+        axios({
+            url: 'https://ah.wtututu.top/login', method: "POST", data: {
+                username: "tutu",
+                password: "123456"
+            }
+        })
     }
 
     render() {
