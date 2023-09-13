@@ -106,9 +106,13 @@ const App = () => {
 }
 ```
 
+> 用于替代useState
+
 ### useCallback(fn, dependencies)
 
 允许在多次渲染中缓存函数的 React Hook
+
+> 用于性能优化
 
 ### useDeferredValue(value)
 
