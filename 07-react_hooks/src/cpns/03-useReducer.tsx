@@ -1,19 +1,24 @@
-import {useState} from 'react'
+import {useReducer} from 'react'
 
-function App() {
-    const [count, setCount] = useState(0)
-    
+const reducer = (state: any, action: { type: any; num: any }) => {
+    switch (action.type) {
+        case 'change':
+            return state + action.num
+        default :
+            return state
+    }
+}
+
+const App = () => {
+    const [state, dispatch] = useReducer(reducer, 0)
+
     return (
         <>
             <div>
                 <h2>Hallo</h2>
-                <p>count is {count}</p>
-                <button onClick={() => setCount(count - 1)}>
-                    -
-                </button>
-                <button onClick={() => setCount(count + 1)}>
-                    +
-                </button>
+                <p>state is {state}</p>
+                <button onClick={() => dispatch({type: 'change', num: 1})}>+1</button>
+                <button onClick={() => dispatch({type: 'change', num: -1})}>-1</button>
             </div>
         </>
     )
