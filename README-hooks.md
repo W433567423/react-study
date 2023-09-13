@@ -114,6 +114,12 @@ const App = () => {
 
 > 用于性能优化
 
+###  useMemo(calculateValue, dependencies)
+
+在每次重新渲染的时候能够缓存计算的结果
+
+> 用于性能优化
+
 ### useDeferredValue(value)
 
 可以延迟更新 UI 的某些部分
@@ -130,9 +136,7 @@ const App = () => {
 
 能自定义由 ref暴露出来的句柄。
 
-###  useMemo(calculateValue, dependencies)
 
-在每次重新渲染的时候能够缓存计算的结果
 
 ### useRef(initialValue)
 
