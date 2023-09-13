@@ -106,9 +106,19 @@ const App = () => {
 }
 ```
 
+> 用于替代useState
+
 ### useCallback(fn, dependencies)
 
 允许在多次渲染中缓存函数的 React Hook
+
+> 用于性能优化
+
+###  useMemo(calculateValue, dependencies)
+
+在每次重新渲染的时候能够缓存计算的结果
+
+> 用于性能优化
 
 ### useDeferredValue(value)
 
@@ -126,9 +136,7 @@ const App = () => {
 
 能自定义由 ref暴露出来的句柄。
 
-###  useMemo(calculateValue, dependencies)
 
-在每次重新渲染的时候能够缓存计算的结果
 
 ### useRef(initialValue)
 
