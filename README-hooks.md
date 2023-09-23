@@ -120,6 +120,17 @@ const App = () => {
 
 > 用于性能优化
 
+### useRef(initialValue)
+
+引用一个不需要渲染的值
+
+- 引入DOM(或组件)元素
+- 保存一个数据,在组件的整个周期不会刷新
+
+### useImperativeHandle(ref, createHandle, dependencies?)
+
+能自定义由 ref暴露出来的句柄。
+
 ### useDeferredValue(value)
 
 可以延迟更新 UI 的某些部分
@@ -131,16 +142,6 @@ const App = () => {
 ### useId()
 
 可以生成传递给无障碍属性的唯一 ID
-
-### useImperativeHandle(ref, createHandle, dependencies?)
-
-能自定义由 ref暴露出来的句柄。
-
-
-
-### useRef(initialValue)
-
-引用一个不需要渲染的值
 
 ### useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot?)
 
