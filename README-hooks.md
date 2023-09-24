@@ -35,7 +35,8 @@ function App() {
 
 - 默认情况下，`effect` 会在每次渲染之后执行
 
-- 也可以通过设置第二个参数，依赖项组成的数组 `useEffect(effect,[])` ，让它在数组中的值发生变化的时候执行，数组中可以设置多个依赖项，其中的任意一项发生变化，`effect` 都会重新执行
+- 也可以通过设置第二个参数，依赖项组成的数组 `useEffect(effect,[])`
+  ，让它在数组中的值发生变化的时候执行，数组中可以设置多个依赖项，其中的任意一项发生变化，`effect` 都会重新执行
 
 ```react
 function App() {
@@ -114,7 +115,7 @@ const App = () => {
 
 > 用于性能优化
 
-###  useMemo(calculateValue, dependencies)
+### useMemo(calculateValue, dependencies)
 
 在每次重新渲染的时候能够缓存计算的结果
 
@@ -127,9 +128,59 @@ const App = () => {
 - 引入DOM(或组件)元素
 - 保存一个数据,在组件的整个周期不会刷新
 
+#### forwardRef
+
+```tsx
+import React, {forwardRef, useRef} from "react";
+
+const Input = forwardRef((_props, ref: React.ForwardedRef<HTMLInputElement>) => {
+    return <input ref={ref} type="text"/>
+})
+
+const App = () => {
+    const inputRef = useRef(null)
+
+    return (
+        <div>
+            <Input ref={inputRef}/>
+            <button onClick={() => (inputRef.current as any).focus()}>聚焦</button>
+        </div>
+    );
+};
+
+export default App;
+```
+
 ### useImperativeHandle(ref, createHandle, dependencies?)
 
 能自定义由 ref暴露出来的句柄。
+
+```tsx
+import React, {forwardRef, useImperativeHandle, useRef} from "react";
+
+const Input = forwardRef((_props, ref: React.ForwardedRef<any>) => {
+    const inputRef = useRef(null)
+    useImperativeHandle(ref, () => ({
+        focus: () => {
+            (inputRef.current as any).focus()
+        }
+    }))
+    return <input ref={inputRef} type="text"/>
+})
+
+const App = () => {
+    const InputRef = useRef(null)
+
+    return (
+        <div>
+            <Input ref={InputRef}/>
+            <button onClick={() => (InputRef.current as any).focus()}>聚焦</button>
+        </div>
+    );
+};
+
+export default App;
+```
 
 ### useDeferredValue(value)
 
