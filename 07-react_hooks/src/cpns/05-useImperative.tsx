@@ -1,16 +1,22 @@
-import React, {forwardRef, useRef} from "react";
+import React, {forwardRef, useImperativeHandle, useRef} from "react";
 
-const Input = forwardRef((_props, ref: React.ForwardedRef<HTMLInputElement>) => {
-    return <input ref={ref} type="text"/>
+const Input = forwardRef((_props, ref: React.ForwardedRef<any>) => {
+    const inputRef = useRef(null)
+    useImperativeHandle(ref, () => ({
+        focus: () => {
+            (inputRef.current as any).focus()
+        }
+    }))
+    return <input ref={inputRef} type="text"/>
 })
 
 const App = () => {
-    const inputRef = useRef(null)
+    const InputRef = useRef(null)
 
     return (
         <div>
-            <Input ref={inputRef}/>
-            <button onClick={() => (inputRef.current as any).focus()}>聚焦</button>
+            <Input ref={InputRef}/>
+            <button onClick={() => (InputRef.current as any).focus()}>聚焦</button>
         </div>
     );
 };
