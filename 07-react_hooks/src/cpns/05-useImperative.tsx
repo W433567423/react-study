@@ -2,11 +2,13 @@ import React, {forwardRef, useImperativeHandle, useRef} from "react";
 
 const Input = forwardRef((_props, ref: React.ForwardedRef<any>) => {
     const inputRef = useRef(null)
+
+    //暴露子组件ref的句柄
     useImperativeHandle(ref, () => ({
         focus: () => {
             (inputRef.current as any).focus()
         }
-    }))
+    }), [inputRef.current])
     return <input ref={inputRef} type="text"/>
 })
 
