@@ -186,6 +186,32 @@ export default App;
 
 相比useEffect，该api会在DOM元素渲染之前进行(阻塞DOM更新)
 
+```tsx
+import {useLayoutEffect, useState} from "react";
+
+const App = () => {
+    const [count, setCount] = useState(0)
+
+    useLayoutEffect(() => {
+        // 在DOM渲染前执行
+        if (count === 10)
+            setCount(0)
+    }, [count]);
+
+    return (
+        <div>
+            count:{count}
+            <br/>
+            <button onClick={() => setCount(count + 1)}>修改数字</button>
+        </div>
+    );
+};
+
+export default App;
+```
+
+> 绝大部分情况下使用useEffect即可
+
 ### useDeferredValue(value)
 
 可以延迟更新 UI 的某些部分
@@ -205,3 +231,5 @@ export default App;
 ### useTransition()
 
 在不阻塞 UI 的情况下更新状态的 React Hook
+
+## 自定义hooks
