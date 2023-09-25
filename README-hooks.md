@@ -182,6 +182,10 @@ const App = () => {
 export default App;
 ```
 
+### useLayoutEffect(setup, dependencies?)
+
+相比useEffect，该api会在DOM元素渲染之前进行(阻塞DOM更新)
+
 ### useDeferredValue(value)
 
 可以延迟更新 UI 的某些部分
